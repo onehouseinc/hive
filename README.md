@@ -1,4 +1,15 @@
 Apache Hive (TM)
+
+================
+Changes that have been made this branch.
+
+1. Applied patch with `patch -p0 <HIVE-12679.branch-2.3.patch`
+
+How to Build
+
+1. Use Java8 - `export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home`. jenv may not work as expected due to how maven works.
+2. Run `mvn clean install -DskipTests`
+
 ================
 [![Master Build Status](https://travis-ci.org/apache/hive.svg?branch=master)](https://travis-ci.org/apache/hive/branches)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.apache.hive/hive/badge.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.apache.hive%22)
