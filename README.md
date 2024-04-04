@@ -1,5 +1,17 @@
 Apache Hive (TM)
 ================
+Changes that have been made this branch.
+
+1. Applied patch with `git apply -3 branch_3.1.patch`
+2. Exclude `org.pentaho:pentaho-aggdesigner-algorithm` from `org.apache.hive:hive-exec` dependency of `pom.xml` in `hive-upgrade-acid` subproject.
+3. Exclude `org.apache.directory.client.ldap:ldap-client-api` from `org.apache.directory.server:apacheds-server-integ` dependency of `pom.xml` in `hive-service` subproject.
+
+How to Build
+
+1. Use Java8 - `export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home`. jenv may not work as expected due to how maven works.
+2. Run `mvn clean install -DskipTests`
+
+================
 [![Master Build Status](https://travis-ci.org/apache/hive.svg?branch=master)](https://travis-ci.org/apache/hive/branches)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.apache.hive/hive/badge.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.apache.hive%22)
 
