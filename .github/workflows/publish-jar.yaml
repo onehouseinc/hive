@@ -39,4 +39,4 @@ jobs:
       - name: Set artifact version
         run: mvn versions:set -DnewVersion="${{ inputs.version }}"
       - name: Deploy
-        run: mvn -B -ntp clean deploy
+        run: mvn -B -ntp clean deploy -pl hive-exec,hive-metastore,hive-common,hive-serde
