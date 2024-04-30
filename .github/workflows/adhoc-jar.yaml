@@ -21,7 +21,7 @@ jobs:
         if: contains(env.VERSION, 'release-v') || env.VERSION == 'latest' || env.VERSION == ''
         run: exit 1
       - id: version
-        run: echo "version=VERSION" >> $GITHUB_OUTPUT
+        run: echo "version=$VERSION" >> $GITHUB_OUTPUT
   publish-jar:
     if: ${{ github.event.issue.pull_request }} && contains(github.event.comment.body, '/push-image')
     needs: generate-version
