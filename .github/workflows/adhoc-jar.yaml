@@ -18,7 +18,7 @@ jobs:
       - name: Parse version
         run: echo "VERSION=$(echo ${{ github.event.review.body }} | sed -e s/\\/push-image\ //)" >> $GITHUB_ENV
       - name: Fail if adhoc image uses reserved tag or is empty
-        if: contains(env.VERSION, 'release-v') || env.VERSION == 'latest' || env.VERSION == ''
+        if: contains(env.VERSION, '-onehouse-') || env.VERSION == 'latest' || env.VERSION == ''
         run: exit 1
       - id: version
         run: echo "version=$VERSION" >> $GITHUB_OUTPUT

@@ -3,7 +3,7 @@ name: Release hive-2.3
 on:
   push:
     tags:
-      - 'hive-2.3-release-v*'
+      - '2.3.*-onehouse-*'
 
 env:
   AWS: "aws"
