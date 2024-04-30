@@ -31,7 +31,7 @@ jobs:
         run: echo "version=$VERSION" >> $GITHUB_OUTPUT
   publish-jar:
     needs: generate-version
-    uses: ./github/workflows/publish-jar.yaml
+    uses: ./.github/workflows/publish-jar.yaml
     secrets: inherit
     with:
       version: ${{needs.generate-version.outputs.version}}
