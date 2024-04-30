@@ -39,4 +39,4 @@ jobs:
       - name: Set artifact version
         run: mvn versions:set -DnewVersion="${{ inputs.version }}"
       - name: Deploy
-        run: mvn -B -ntp deploy -am -pl ql,metastore,common,serde -DskipTests
+        run: mvn -B -ntp deploy -am -pl packaging/ql,packaging/metastore,packaging/common,packaging/serde -DskipTests
