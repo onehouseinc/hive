@@ -11,6 +11,11 @@ jobs:
   publish_jar:
     runs-on: ubuntu-latest
     steps:
+      - name: Print Version
+        run: echo "${{ inputs.version }}"
+      - name: Fail if version not set
+        if: ${{ inputs.version }} == ''
+        run: exit 1
       - uses: actions/checkout@v2
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -31,11 +36,6 @@ jobs:
           server-id: codeartifact
           server-username: AWS
           server-password: CODEARTIFACT_AUTH_TOKEN
-      - name: Print Version
-        run: echo "${{ inputs.version }}"
-      - name: Fail if version not set
-        if: ${{ inputs.version }} == ''
-        run: exit 1
       - name: Set artifact version
         run: mvn versions:set -DnewVersion="${{ inputs.version }}"
       - name: Deploy

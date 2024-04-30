@@ -22,6 +22,8 @@ jobs:
         run: exit 1
       - id: version
         run: echo "version=VERSION" >> $GITHUB_OUTPUT
+      - name: Print Version
+        run: echo "${{ version }}"
   publish-jar:
     if: ${{ github.event.issue.pull_request }} && contains(github.event.comment.body, '/push-image')
     needs: generate-version
