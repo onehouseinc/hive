@@ -18,10 +18,8 @@ jobs:
     outputs:
       version: ${{ steps.version.outputs.version }}
     steps:
-      - name: Set TAG_PRESENT_IN_COMMIT
-        run: echo "TAG_PRESENT_IN_COMMIT=$(git tag --contains $COMMIT_HASH | head -1)" >> $GITHUB_ENV
       - name: Set VERSION
-        run: echo "VERSION=$TAG_PRESENT_IN_COMMIT" >> $GITHUB_ENV
+        run: echo "VERSION=$(echo ${{ github.ref_name }})" >> $GITHUB_ENV
       - name: Print Version
         run: echo "$VERSION"
       - name: Fail if version not set
